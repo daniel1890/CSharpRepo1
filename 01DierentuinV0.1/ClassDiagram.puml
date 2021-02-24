@@ -1,0 +1,60 @@
+@startuml
+
+Abstract Class Dier {
+	+ string Naam
+	+ int AantalLedematen
+}
+
+Interface IDier {
+	+ string SetNaam()
+	+ string GetNaam()
+	+ int SetAantalLedematen()
+	+ int GetAantalLedematen()
+	+ void PrintEigenschappen()
+}
+
+Class Tijger {
+	+ void ren()
+}
+
+Class Vogel {
+	+ void vlieg()
+}
+
+Class Vis {
+	+ void Zwem()
+}
+
+Class Jungle {
+	+ List<Tijger> Tijgers
+}
+
+Class Vogelkooi {
+	+ List<Vogel> Vogels
+}
+
+Class Aquarium {
+	+ List<Vis> Vissen
+}
+
+Class Dierentuin {
+	+ Jungle JungleGebied
+	+ Vogelkooi VogelkooiGebied
+	+ Aquarium AquariumGebied
+}
+
+Tijger --|> Dier
+Vogel --|> Dier
+Vis --|> Dier
+
+Dier ..> IDier
+
+Jungle o-- Tijger
+Vogelkooi o-- Vogel
+Aquarium o-- Vis
+
+Dierentuin *-- Jungle
+Dierentuin *-- Vogelkooi
+Dierentuin *-- Aquarium
+
+@enduml
